@@ -1,0 +1,49 @@
+/* Home.css */
+
+/* General body styling */
+body {
+    margin: 0; /* Remove default margin */
+    background-color: #e3f2fd; /* Light blue background for the entire page */
+}
+
+/* Header styling */
+.home-header {
+    background-color: #2196f3; /* Solid blue background for the header */
+    padding: 20px; /* Padding around the header */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the nav links */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: fixed; /* Fix the header at the top */
+    width: 100%; /* Full width */
+    top: 0; /* Align to the top */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Navigation links styling */
+.nav-links {
+    display: flex; /* Use flexbox for horizontal layout */
+    gap: 20px; /* Space between buttons */
+}
+
+/* Button styling */
+.nav-button {
+    text-decoration: none; /* Remove underline from links */
+    color: #fff; /* White color for text */
+    font-size: 1.2rem; /* Font size for buttons */
+    padding: 10px 15px; /* Padding for buttons */
+    border-radius: 5px; /* Rounded corners */
+    transition: background 0.3s ease; /* Smooth background transition */
+}
+
+/* Button hover effect */
+.nav-button:hover {
+    background-color: #90caf9; /* Light blue background on hover */
+    color: #0d47a1; /* Dark blue text on hover */
+}
+
+/* Content styling */
+.content {
+    margin-top: 80px; /* Space for fixed header */
+    text-align: center; /* Center the content */
+    color: #0d47a1; /* Dark blue for content text */
+} 

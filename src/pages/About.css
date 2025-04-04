@@ -1,0 +1,27 @@
+.about-header {
+  background-color: #007BFF; /* Blue background */
+  color: white; /* White text color */
+  padding: 20px;
+  text-align: center;
+}
+
+.content {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333; /* Dark text color for readability */
+}
+
+.content p {
+  margin: 10px 0; /* Spacing between paragraphs */
+} 
+.home-header{
+    background-color: #2196f3; /* Solid blue background for the header */
+    padding: 20px; /* Padding around the header */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center the nav links */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: fixed; /* Fix the header at the top */
+    width: 100%; /* Full width */
+    top: 0; /* Align to the top */
+    z-index: 1000; /* Ensure it stays above other content */
+}
