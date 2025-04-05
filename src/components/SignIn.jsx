@@ -1,8 +1,9 @@
 // src/components/SignIn.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
 import './SignIn.css'; // Import the CSS file for styling
 
 const SignIn = () => {
@@ -16,8 +17,25 @@ const SignIn = () => {
     setLoading(true);
     setError('');
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate('/home'); // Redirect to the home page after successful sign-in
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      
+      // Get user data from Firestore
+      const userDoc = await getDoc(doc(db, 'users', user.uid));
+      const userData = userDoc.data();
+
+      // Check user role and interview status
+      if (userData.role === 'seeker') {
+        // For job seekers, check interview status
+        if (!userData.interviewCompleted || (userData.interviewScore && userData.interviewScore < 75)) {
+          navigate('/restricted-profile');
+        } else {
+          navigate('/home');
+        }
+      } else {
+        // For hirers or other roles, go to home
+        navigate('/home');
+      }
     } catch (error) {
       setError('Invalid email or password. Please try again.');
       console.error("Error signing in:", error);
@@ -45,6 +63,9 @@ const SignIn = () => {
       <button onClick={handleSignIn} disabled={loading}>
         {loading ? 'Signing In...' : 'Sign In'}
       </button>
+      <p className="signup-link">
+        Don't have an account? <a onClick={() => navigate('/signup')}>Sign Up</a>
+      </p>
     </div>
   );
 };

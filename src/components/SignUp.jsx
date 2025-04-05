@@ -13,6 +13,12 @@ const SignUp = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [signUpSuccess, setSignUpSuccess] = useState(false); // New state for sign up success
+  const [location, setLocation] = useState(''); // State for location
+  const [name, setName] = useState(''); // State for name
+  const [bio, setBio] = useState(''); // State for bio
+  const [skills, setSkills] = useState(''); // State for skills
+  const [experience, setExperience] = useState(''); // State for experience
+  const [role, setRole] = useState(''); // State for role
   const navigate = useNavigate(); // Initialize useNavigate hook
 
   const handleSignUp = async () => {
@@ -24,11 +30,19 @@ const SignUp = () => {
       
       // Save user data to Firestore
       await setDoc(doc(db, 'users', user.uid), {
+        uid: user.uid,
         email: user.email,
-        displayName: displayName || '', // Use displayName state, default to empty string
-        profilePicture: '', // Optional field, can be updated later
-        createdAt: new Date(),
+        displayName: displayName || '',
+        role: '', // will be filled in complete profile step
+        name: '',
+        bio: '',
+        skills: [],
+        experience: '',
+        location: '',
+        profileCompleted: false,
+        timestamp: new Date()
       });
+      
 
       setSignUpSuccess(true); // Update state on successful sign up
       setTimeout(() => navigate('/signin'), 2000); // Redirect to sign-in page after 2 seconds
@@ -70,6 +84,46 @@ const SignUp = () => {
         onChange={(e) => setDisplayName(e.target.value)}
         placeholder="Display Name" // Optional field for user name
       />
+      <input
+  type="text"
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+  placeholder="Full Name"
+/>
+
+<textarea
+  value={bio}
+  onChange={(e) => setBio(e.target.value)}
+  placeholder="Short Bio (optional)"
+></textarea>
+
+<input
+  type="text"
+  value={skills}
+  onChange={(e) => setSkills(e.target.value)}
+  placeholder="Skills (comma-separated)"
+/>
+
+<input
+  type="text"
+  value={experience}
+  onChange={(e) => setExperience(e.target.value)}
+  placeholder="Years of Experience"
+/>
+
+<input
+  type="text"
+  value={location}
+  onChange={(e) => setLocation(e.target.value)}
+  placeholder="Location"
+/>
+
+<select value={role} onChange={(e) => setRole(e.target.value)}>
+  <option value="">Select Role</option>
+  <option value="seeker">Job Seeker</option>
+  <option value="employer">Employer</option>
+</select>
+
       <button onClick={handleSignUp} disabled={loading}>
         {loading ? 'Signing Up...' : 'Sign Up'}
       </button>

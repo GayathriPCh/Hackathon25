@@ -1,0 +1,188 @@
+/* Container */
+.signup-container {
+    max-width: 500px;
+    margin: 100px auto 50px;
+    padding: 40px 32px;
+    background: linear-gradient(145deg, #101420, #181d2a);
+    border-radius: 16px;
+    box-shadow: 0 0 12px rgba(0, 200, 255, 0.07);
+    color: #e0f7fa;
+    font-family: 'Segoe UI', sans-serif;
+    animation: fadeIn 0.6s ease;
+  }
+  
+  /* Heading */
+  .signup-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #00d2ff;
+    margin-bottom: 20px;
+  }
+  
+  /* Subtitles */
+  .subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: #b0c4de;
+    margin-bottom: 30px;
+  }
+  
+  /* Error message */
+  .error-message {
+    background-color: rgba(255, 0, 0, 0.08);
+    color: #ff6b6b;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  /* Input Fields */
+  .signup-container input {
+    width: 100%;
+    padding: 14px 16px;
+    margin: 10px 0;
+    background-color: #121826;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .signup-container input:focus {
+    outline: none;
+    border: 1px solid #00c6ff;
+    box-shadow: 0 0 8px rgba(0, 198, 255, 0.3);
+  }
+  
+  /* Buttons */
+  .signup-container button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  .signup-container button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 198, 255, 0.25);
+  }
+  
+  .signup-container button.secondary {
+    background: transparent;
+    border: 1px solid #00c6ff;
+    color: #00c6ff;
+    margin-right: 12px;
+    width: auto;
+    padding: 10px 20px;
+  }
+  
+  /* Login and Back Links */
+  .login-link,
+  .back-link {
+    margin-top: 20px;
+    text-align: center;
+    color: #9fc9ff;
+    font-size: 0.95rem;
+  }
+  
+  .login-link a,
+  .back-link a {
+    color: #00c6ff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .login-link a:hover,
+  .back-link a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Preview Cards */
+  .questions-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  
+  .question-preview-card {
+    background: #121826;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 0 6px rgba(0, 198, 255, 0.03);
+    color: #e0f7fa;
+    transition: border 0.3s ease;
+  }
+  
+  .question-preview-card:hover {
+    border: 1px solid rgba(0, 200, 255, 0.2);
+  }
+  
+  /* Skill tag */
+  .skill-tag {
+    display: inline-block;
+    background-color: #00c6ff;
+    color: #121826;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  
+  /* Preview buttons wrapper */
+  .preview-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  /* Loading section */
+  .loading {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .loading h2 {
+    color: #00c6ff;
+    margin-bottom: 20px;
+  }
+  
+  .loading-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #00c6ff;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    margin: auto;
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

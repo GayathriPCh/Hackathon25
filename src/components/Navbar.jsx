@@ -1,13 +1,32 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Navbar.css"; // Assuming you have styles
+import { onAuthStateChanged } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "../firebase";
+import "./Navbar.css";
 
 const Navbar = () => {
+  const [displayName, setDisplayName] = useState("");
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const userRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(userRef);
+        if (docSnap.exists()) {
+          setDisplayName(docSnap.data().displayName);
+        }
+      }
+    });
+
+    return () => unsubscribe(); // Cleanup
+  }, []);
+
   return (
-    <nav className="nav-links">
-      <Link to="/home" className="nav-button">Dashboard</Link>
-      <Link to="/about" className="nav-button">Updates</Link>
-      <Link to="/tools" className="nav-button">Tools</Link>
-      <Link to="/features" className="nav-button">Tutorials</Link>
+    <nav className="navbar-container">
+      <Link to="/profile" className="profile-link">
+        <span role="img" aria-label="profile">👤</span> {displayName}
+      </Link>
     </nav>
   );
 };

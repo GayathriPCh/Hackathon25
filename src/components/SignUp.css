@@ -3,11 +3,12 @@
     display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 500px; /* Increased max-width for more space */
-  margin: 40px auto; /* Increased margin for better spacing */
-  padding: 40px; /* Increased padding for a more spacious feel */
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
   border-radius: 12px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
   background: linear-gradient(145deg, #ffffff, #f9f9f9);
   background-color: #fff;
   }
@@ -49,74 +50,155 @@
   
   /* Title styling */
   .signup-container h1 {
-    margin-bottom: 30px; /* Increased margin for better spacing */
-    font-size: 2.5rem; /* Larger font size for emphasis */
-    color: #0d47a1; /* Darker blue for a more professional look */
-    text-align: center; /* Center-align title */
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .subtitle {
+    color: #666;
+    margin-bottom: 30px;
   }
   
   /* Input styling */
   .signup-container input {
     width: 100%;
-    padding: 14px; /* Increased padding for a more comfortable input */
-    margin: 15px 0; /* Increased margin for spacing between inputs */
-    border: 1px solid #90caf9; /* Softer blue border */
-    border-radius: 5px; /* Slightly less rounded for a more professional look */
-    font-size: 16px;
-    background: #f5f5f5; /* Slightly lighter background */
-    transition: background 0.3s ease, border-color 0.3s ease;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
   }
   
   .signup-container input:focus {
-    background: #ffffff;
-    border-color: #007bff;
-    outline: none; /* Remove default outline on focus */
+    outline: none;
+    border-color: #3498db;
   }
   
   /* Error message styling */
-  .signup-container .error-message {
-    color: #d32f2f; /* Red for error messages */
-    margin-bottom: 15px; /* Increased margin for spacing */
-    font-size: 1rem; /* Slightly larger font size for visibility */
-    text-align: center; /* Center-align error message */
+  .error-message {
+    color: #e74c3c;
+    margin-bottom: 20px;
   }
   
   /* Button styling */
   .signup-container button {
-    width: 100%;
-    padding: 16px; /* Increased padding for a more prominent button */
+    background: #3498db;
+    color: white;
     border: none;
-    border-radius: 10px; /* Consistent rounded corners */
-    background: #2196f3; /* Solid blue for a more professional button */
-    color: #fff;
-    font-size: 18px; /* Larger font size for better readability */
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-size: 1em;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: background-color 0.2s;
+    width: 100%;
+  }
+  
+  .signup-container button.secondary {
+    background: #95a5a6;
+    margin-right: 10px;
   }
   
   .signup-container button:hover {
-    background: linear-gradient(145deg, #0056b3, #003d80);
-    transform: scale(1.03);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    background: #2980b9;
+  }
+  
+  .signup-container button.secondary:hover {
+    background: #7f8c8d;
   }
   
   .signup-container button:disabled {
-    background: #aaa;
+    background: #95a5a6;
     cursor: not-allowed;
   }
   
   /* Login link styling */
-  .signup-container .login-link {
-    margin-top: 20px; /* Increased margin for better spacing */
-    font-size: 1rem; /* Slightly larger font size for readability */
+  .login-link, .back-link {
+    margin-top: 20px;
+    color: #666;
   }
   
-  .signup-container .login-link a {
-    color: #0d47a1; /* Darker blue for links */
+  .login-link a, .back-link a {
+    color: #3498db;
+    cursor: pointer;
     text-decoration: none;
   }
   
-  .signup-container .login-link a:hover {
+  .login-link a:hover, .back-link a:hover {
     text-decoration: underline;
+  }
+  
+  /* Loading styles */
+  .loading {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .loading h2 {
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .loading-spinner {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Question preview styles */
+  .questions-preview {
+    margin: 30px 0;
+    text-align: left;
+  }
+  
+  .question-preview-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+  }
+  
+  .skill-tag {
+    display: inline-block;
+    background: #e1f5fe;
+    color: #0288d1;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+  }
+  
+  .preview-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .preview-actions button {
+    flex: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .signup-container {
+      padding: 15px;
+      margin: 20px auto;
+    }
+    
+    .preview-actions {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .preview-actions button {
+      width: 100%;
+    }
   }

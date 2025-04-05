@@ -1,0 +1,133 @@
+.role-selection-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px 24px;
+  text-align: center;
+  background: linear-gradient(135deg, #0c0e18, #151825);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 110, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.role-selection-container h1 {
+  margin-bottom: 40px;
+  font-size: 2.6em;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  background: linear-gradient(to right, #00b4ff, #8be6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.role-buttons {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.role-button {
+  flex: 1;
+  min-width: 260px;
+  max-width: 340px;
+  padding: 32px 24px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #101420, #181d2a);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 132, 255, 0.07);
+  position: relative;
+  overflow: hidden;
+}
+
+.role-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #00c9ff, #005bea);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.role-button:hover::before {
+  opacity: 0.08;
+}
+
+.role-button:hover {
+  transform: translateY(-4px) scale(1.02);
+  border: 1px solid #009dff;
+  box-shadow: 0 8px 20px rgba(0, 180, 255, 0.25);
+}
+
+.role-button h2 {
+  margin: 0 0 12px 0;
+  color: #66d9ff;
+  font-size: 1.4em;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.role-button:hover h2 {
+  color: #ffffff;
+}
+
+.role-button p {
+  color: #a4bcd3;
+  margin: 0;
+  font-size: 0.95em;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.role-button:hover p {
+  color: #e0f7ff;
+}
+
+@media (max-width: 768px) {
+  .role-selection-container {
+    margin: 30px 16px;
+    padding: 24px 16px;
+  }
+
+  .role-selection-container h1 {
+    font-size: 2em;
+    margin-bottom: 32px;
+  }
+
+  .role-buttons {
+    gap: 16px;
+    padding: 0;
+  }
+
+  .role-button {
+    flex: 1;
+    min-width: 260px;
+    max-width: 340px;
+    padding: 32px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08); /* subtle initial outline */
+    border-radius: 16px;
+    background: linear-gradient(145deg, #101420, #181d2a);
+    transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.02); /* faint glow for depth */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .role-button:hover {
+    transform: translateY(-2px);
+    border: 2px solid rgba(0, 200, 255, 0.3); /* glowier, thicker outline */
+    box-shadow: 0 0 10px rgba(0, 200, 255, 0.1); /* faint halo */
+  }
+  
+    
+}
